@@ -1,24 +1,17 @@
 class User < ApplicationRecord
-
-  def self.update_or_create(auth)
-    user = User.find_by(uid: auth[:uid]) || User.new
-    user.attributes = {
-      uid: auth[:uid],
-      login: auth[:login],
-      token: auth[:token]
-      # name: auth[:name],
-      # avatar_url: auth[:avatar_url],
-      # repos_url: auth[:repos_url],
-      # blog: auth[:blog],
-      # location: auth[:location],
-      # email: auth[:email],
-      # hireable: auth[:hireable],
-      # bio: auth[:bio],
-      # public_repos: auth[:public_repos],
-      # followers: auth[:followers],
-      # following: auth[:following]
-    }
-    user.save!
+  def self.from_omniauth(auth_info)
+    user = where(uid: auth_info[:uid]).first_or_create do |new_user|
+      new_user.uid      = auth_info.uid
+      new_user.login    = auth_info.info.username
+      new_user.token    = auth_info.credentials.token
+    end
+    verify_current_token(user, auth_info)
     user
+  end
+
+  def self.verify_current_token(user, auth_info)
+    unless user.token == auth_info.credentials.token
+      user.update(token: auth_info.credentials.token)
+    end
   end
 end

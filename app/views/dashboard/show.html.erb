@@ -1,0 +1,24 @@
+<p><%= image_tag @user_info["avatar_url"], size: "200" %></p>
+
+<h1><strong>Name: </strong><%= @user_info["name"] %></h1>
+
+<h4><strong>Nickname: </strong><%= @user_info["login"] %></h4>
+
+<p><strong>Bio: </strong><%= @user_info["bio"] %></p>
+
+<p><strong>Number of Starred Repos: </strong><%= @starred_repo_count %></p>
+
+<p>
+  <strong>Followers: </strong>
+    <%= link_to @followers["login"], @followers["html_url"] %>
+</p>
+
+<p>
+  <strong>Following: </strong>
+    <%= link_to @followees["login"], @followees["html_url"] %>
+</p>
+
+<p>
+  <strong>Repos: </strong>
+    <%= link_to @repos.first["name"], @repos.first["html_url"] %>
+</p>

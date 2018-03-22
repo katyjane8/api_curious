@@ -1,1 +1,8 @@
+<h1>Welcome!</h1>
+<% if current_user %>
+  <h3>Welcome, <%= "#{current_user.login}" %></h3>
+  <%= link_to "Logout", logout_path %>
+
+<% else %>
 <%= link_to "Sign in with Github", login_path %>
+<% end %>
