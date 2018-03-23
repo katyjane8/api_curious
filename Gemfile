@@ -15,6 +15,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-github'
 gem 'figaro'
 gem 'pry'
+gem 'materialize-sass'
+gem 'bootstrap-sass'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
