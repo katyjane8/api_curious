@@ -1,15 +1,105 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+ // * This is a manifest file that'll be compiled into application.css, which will include all the files
+ // * listed below.
+ // *
+ // * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ // * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ // *
+ // * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ // * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ // * files in this directory. Styles in this file should be added after the last require_* statement.
+ // * It is generally better to create a new file per style scope.
+ // *
+ // *= require_tree .
+ // *= require_self
+ // */
+body {
+  background: white;
+}
+
+nav {
+  background-color: #333;
+}
+
+aside {
+  width: 200px;
+  margin: 20px;
+}
+
+nav a {
+  color: ghostwhite;
+}
+
+main {
+  display: flex;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+i {
+  color: ghostwhite;
+  width: 100%;
+}
+
+.logo {
+  width: 100px;
+}
+section {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+}
+left {
+  border-style: solid;
+  border-color: grey;
+  border-width: thin;
+  padding: 10px;
+  margin: 10px;
+  align-self: flex-start;
+}
+right {
+  border-style: solid;
+  border-color: grey;
+  border-width: thin;
+  padding: 10px;
+  margin: 10px;
+  width: 55%;
+  align-self: flex-start;
+}
+div {
+  /*border: 1px solid black;*/
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+h3 {
+  text-align: center;
+}
+
+ul {
+  display: flex;
+}
+li {
+  list-style-type: none;
+  padding: 2px;
+  text-align: left;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.profile_pic {
+ float: left;
+ margin: 10px
+}
+
+.organizations p {
+ text-align: center;
+}
+
+#profile_info{
+ height: 175px;
+}
