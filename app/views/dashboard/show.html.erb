@@ -1,24 +1,62 @@
-<p><%= image_tag @user_info["avatar_url"], size: "200" %></p>
+<nav id="navbar" class="">
+  <div class="nav-wrapper">
+    <div class="logo">
+      <img src="../assets/images/gh_cat.svg"/>
+    </div>
+    <ul id="menu">
+      <li><a href="#">Pull Requests</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">Marketplace</a></li>
+      <li><a href="#">Explore</a></li>
+    </ul>
+  </div>
+</nav>
 
-<h1><strong>Name: </strong><%= @user_info["name"] %></h1>
+<main>
 
-<h4><strong>Nickname: </strong><%= @user_info["login"] %></h4>
+  <aside>
+    <%= image_tag @user_info["avatar_url"], size: "200" %>
+    <h1><%= @user_info["name"] %></h1>
+    <h4></strong><%= @user_info["login"] %></h4>
+    <p><strong>Bio: </strong><%= @user_info["bio"] %></p>
+  </aside>
 
-<p><strong>Bio: </strong><%= @user_info["bio"] %></p>
+  <section>
+    <left>
+    <p><strong>Number of Starred Repos: </strong><%= @starred_repo_count %></p>
+    <p>
+      <strong>Followers: </strong> <%= @followers.count %>    </p>
+      <p>
+        <% @followers.each do |follower| %>
+        <%= link_to follower["login"], follower["html_url"] %>
+        <% end %>
+      </p>
 
-<p><strong>Number of Starred Repos: </strong><%= @starred_repo_count %></p>
+    <p>
+      <strong>Following: </strong><%= @followees.count %>      </p>
+      <p>
+      <% @followees.each do |followee| %>
+      <%= link_to followee["login"], followee["html_url"] %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Followers: </strong>
-    <%= link_to @followers["login"], @followers["html_url"] %>
-</p>
-
-<p>
-  <strong>Following: </strong>
-    <%= link_to @followees["login"], @followees["html_url"] %>
-</p>
-
-<p>
-  <strong>Repos: </strong>
-    <%= link_to @repos.first["name"], @repos.first["html_url"] %>
-</p>
+    <p><strong>Recent Commits: </strong><%= @events.count %>      </p>
+    <p>
+      <% @events.each do |event| %>
+        <li><%= event[:repo_name] %></li>
+        <%= event[:message] %>
+      <% end %>
+    </p>
+    <p><strong>Recent Activity: </strong></p>
+    <p> <strong>Organizations: </strong></p>
+</left>
+<right>
+    <p>
+      <strong>Repos: </strong>
+      <% @repos.each do |repo| %>
+        <p><%= link_to repo["name"], repo["html_url"] %></p>
+      <% end %>
+    </p>
+    </right>
+  </section>
+</main>
