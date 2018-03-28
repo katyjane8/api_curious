@@ -8,6 +8,20 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+  <nav id="navbar" class="">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <img src="../app/assets/images/gh_cat.svg"/>
+      </div>
+      <ul id="menu">
+        <li><a href="#">Pull Requests</a></li>
+        <li><a href="#">Issues</a></li>
+        <li><a href="#">Marketplace</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><%= link_to "Logout", logout_path %></li>
+      </ul>
+    </div>
+  </nav>
 
   <body>
     <%= yield %>

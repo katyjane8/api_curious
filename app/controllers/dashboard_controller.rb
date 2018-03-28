@@ -7,6 +7,6 @@ class DashboardController < ApplicationController
     @followees          = @github_service.get_following
     @repos              = @github_service.get_repos
     @events             = @github_service.get_events
-    # @other_events       = @github_service.get_others_events
+    @other_events       = @github_service.get_others_events
   end
 end
